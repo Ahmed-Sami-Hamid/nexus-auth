@@ -1,7 +1,7 @@
 {
   "name": "@nexussoftware/auth",
   "description": "Simple way to dispatch the user based on it's status (logged in/not logged in)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "react",
     "javascript",
