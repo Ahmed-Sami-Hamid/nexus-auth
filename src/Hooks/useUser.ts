@@ -1,34 +1,34 @@
 // React
-import { useContext } from "react"
+import { useContext } from "react";
 
 // Hooks
-import useQuery from "@hybrissoftware/use-ful-query"
+import useQuery from "@nexussoftware/fetch-query";
 
 // Contexts
-import UserInfoContext from "../Context/UserInfoContext"
-import AuthProviderContext from "../Context/AuthProviderContext"
+import UserInfoContext from "../Context/UserInfoContext";
+import AuthProviderContext from "../Context/AuthProviderContext";
 
 const useUser = () => {
-  const { userInfo, setUserInfo } = useContext(UserInfoContext)
-  const authUrl = useContext(AuthProviderContext)
+  const { userInfo, setUserInfo } = useContext(UserInfoContext);
+  const authUrl = useContext(AuthProviderContext);
 
   const userInfoQuery = useQuery({
     url: authUrl,
     method: "GET",
     executeImmediately: false,
     onSuccess: (response: any) => {
-      setUserInfo(response.data)
+      setUserInfo(response.data);
     },
     onUnauthorized: (error: any) => {
-      setUserInfo({})
+      setUserInfo({});
     },
-  })
+  });
 
   const refreshUserInfo = () => {
-    userInfoQuery.executeQuery()
-  }
+    userInfoQuery.executeQuery();
+  };
 
-  return { userInfo, refreshUserInfo }
-}
+  return { userInfo, refreshUserInfo };
+};
 
-export default useUser
+export default useUser;
